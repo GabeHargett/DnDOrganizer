@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
         
         title = "Home"
         print("cool")
+        //the best code
         
         configureBackground()
         print("cool")
