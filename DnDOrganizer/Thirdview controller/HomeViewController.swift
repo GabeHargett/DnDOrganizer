@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Home"
+        print("cool")
+        //the best code
         
         configureBackground()
         print("cool")
