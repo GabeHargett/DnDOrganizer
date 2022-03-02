@@ -56,6 +56,8 @@ class CreateGroupVC: UIViewController {
         button5.backgroundColor = .blue
         button5.cornerRadius(radius: 8)
         
+        print("cool")
+        
         button2.backgroundColor = .blue
         button2.cornerRadius(radius: 8)
         
