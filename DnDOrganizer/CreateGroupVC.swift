@@ -96,6 +96,16 @@ struct WeekData {
     var weekNumber: Int
 
     var tasks: [WeekTask]
+    
+    func allTasksComplete() -> Bool {
+        var allComplete = true
+        for task in tasks {
+            if !task.isComplete {
+                allComplete = false
+            }
+        }
+        return allComplete
+    }
 
 }
 

@@ -6,8 +6,33 @@
 //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
 
 import UIKit
+struct FullName{
+    var firstName: String
+    var lastName: String
+    
+    func initials() -> String {
+        var initials = ""
+        initials.append(firstName.first!)
+        initials.append(lastName.first!)
+        return initials
+    }
+    
+    func firstAndLastInitial() -> String {
+        var string = ""
+        string.append(firstName)
+        string.append(" ")
+        string.append(lastName.first!)
+        return string
+    }
+}
+
 
 class HomeViewController: UIViewController {
+    
+    func structPlayground() {
+        let tannersName: FullName = FullName(firstName: "Tanner", lastName: "Rozier")
+        print(tannersName.firstAndLastInitial())
+    }
     
     let imageView = UIImageView()
     let completionLabel = UILabel()
@@ -16,7 +41,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Home"
-        
+        structPlayground()
         configureBackground()
 //        var integer: Int?
 //        var cgFloat: CGFloat?
