@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
         var double: Double?
         
         integer = 4
+        
         guard let integer = integer else {
             return
         }
