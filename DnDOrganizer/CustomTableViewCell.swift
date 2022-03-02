@@ -7,13 +7,18 @@
 
 import UIKit
 
-
+protocol CustomTableViewCellDelegate: AnyObject {
+    func didCheckBox(taskIndex: Int)
+}
 
 class CustomTableViewCell: UITableViewCell {
     static let identifier = "CustonTableViewCell"
     
     let myTextField: UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 50.00))
     let checkbox1 = CircularCheckbox(frame: CGRect(x: 150, y: 150, width: 25, height: 25))
+    
+    weak var delegate: CustomTableViewCellDelegate?
+    var taskIndex: Int?
 
   
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -36,6 +41,9 @@ class CustomTableViewCell: UITableViewCell {
     }
     @objc func didTapCheckBox() {
         checkbox1.toggle()
+        if let taskIndex = taskIndex {
+            delegate?.didCheckBox(taskIndex: taskIndex)
+        }
        //protocols and delegates for tableview cells
     }
  

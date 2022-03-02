@@ -10,31 +10,25 @@ import UIKit
 class HomeViewController: UIViewController {
     
     let imageView = UIImageView()
+    let completionLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Home"
-        print("cool")
-        //the best code
         
         configureBackground()
-        print("cool")
-        
-        var integer: Int?
-        var cgFloat: CGFloat?
-        var double: Double?
-        
-        integer = 4
-        
-        guard let integer = integer else {
-            return
-        }
+//        var integer: Int?
+//        var cgFloat: CGFloat?
+//        var double: Double?
+//
+//        integer = 4
+//
+//        guard let integer = integer else {
+//            return
+//        }
         
     }
-    
-    
-    
     
     
     func addImage() {
@@ -62,7 +56,23 @@ class HomeViewController: UIViewController {
         addImage()
         
         print("c")
-            
+        
+        completionLabel.text = "Task are not completed for Week 1"
+        completionLabel.textColor = .black
+        completionLabel.textAlignment = .center
+        completionLabel.font = UIFont.systemFont(ofSize: 20.0)
+        completionLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        completionLabel.font = UIFont.italicSystemFont(ofSize: 20.0)
+        
+        view.addAutoLayoutSubview(completionLabel)
+        
+        NSLayoutConstraint.activate([
+            completionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            completionLabel.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant:  -16),
+            //completionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -16),
+            //completionLabel.heightAnchor.constraint(equalTo: completionLabel.widthAnchor),
+        ])
+
         let whiteBox = UIButton()
         whiteBox.setTitle("Cool", for: .normal)
         whiteBox.setTitleColor(.red, for: .normal)
@@ -144,9 +154,16 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func didTapBlackBox() {
-        let week1Data = WeekData(weekNumber: 1, tasks: [])
-        let vc = firstvc(weekData: week1Data)
-        navigationController?.pushViewController(vc, animated: true)
+        let vc = WeeksClassVC()
+        navigationController?.pushViewController(vc, animated: true)        
+    }
+}
+
+extension HomeViewController: firstvcDelegate {
+
+    func hideText(isCompleted: Bool) {
+        completionLabel.isHidden = isCompleted
+        
     }
 }
 

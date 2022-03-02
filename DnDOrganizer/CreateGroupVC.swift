@@ -109,6 +109,9 @@ struct WeekTask {
 
 }
 
+protocol firstvcDelegate: AnyObject {
+    func hideText(isCompleted: Bool)
+}
 
 
 class firstvc: UIViewController {
@@ -141,7 +144,9 @@ class firstvc: UIViewController {
     private var items = [String]()
     let myTextField: UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 50.00))
         
-    
+    weak var delegate: firstvcDelegate?
+    var isComplete: Bool?
+  
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
     
@@ -249,7 +254,16 @@ extension firstvc: UITextFieldDelegate {
 
 }
 
-extension firstvc: UITableViewDataSource {
+extension firstvc: CustomTableViewCellDelegate {
+    func didCheckBox(taskIndex: Int) {
+        print("checked")
+        weekData.tasks[taskIndex].isComplete.toggle()
+        UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
+        delegate?.hideText(isCompleted: true)
+    }
+}
+
+extension firstvc: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return items.count
         return weekData.tasks.count
@@ -259,8 +273,13 @@ extension firstvc: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier,
-                                                 for: indexPath)
+                                                 for: indexPath) as! CustomTableViewCell
+        cell.delegate = self
+        cell.taskIndex = indexPath.item
         cell.textLabel?.text = weekData.tasks[indexPath.item].title
+        if weekData.tasks[indexPath.item].isComplete {
+            cell.checkbox1.toggle()
+        }
         return cell
 
 
@@ -270,13 +289,13 @@ extension firstvc: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        weekData.tasks[indexPath.row].isComplete = true
-
-        UserDefaults.standard.set(weekData.tasks.map({$0.title}), forKey: "Week\(weekData.weekNumber)Titles")
-
-        UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
-
-        tableView.reloadData()
+//        weekData.tasks[indexPath.row].isComplete = true
+//
+//        UserDefaults.standard.set(weekData.tasks.map({$0.title}), forKey: "Week\(weekData.weekNumber)Titles")
+//
+//        UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
+//
+//        tableView.reloadData()
 
     }
 

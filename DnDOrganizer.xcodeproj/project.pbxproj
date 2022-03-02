@@ -15,6 +15,7 @@
 		774C21C327B0D6A7005E903A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C21C227B0D6A7005E903A /* HomeViewController.swift */; };
 		774C21C727B42CE9005E903A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C21C627B42CE9005E903A /* CustomTableViewCell.swift */; };
 		774C21E327C553C0005E903A /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C21E227C553C0005E903A /* Checkbox.swift */; };
+		7787280427D0263A0060B496 /* WeeksClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7787280327D0263A0060B496 /* WeeksClassVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		774C21C227B0D6A7005E903A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "Thirdview controller/HomeViewController.swift"; sourceTree = "<group>"; };
 		774C21C627B42CE9005E903A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		774C21E227C553C0005E903A /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		7787280327D0263A0060B496 /* WeeksClassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksClassVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				774C219D27AB0484005E903A /* AppDelegate.swift */,
 				774C219F27AB0484005E903A /* SceneDelegate.swift */,
 				774C21C227B0D6A7005E903A /* HomeViewController.swift */,
+				7787280327D0263A0060B496 /* WeeksClassVC.swift */,
 				774C21B127AB417C005E903A /* CreateGroupVC.swift */,
 				774C21C627B42CE9005E903A /* CustomTableViewCell.swift */,
 				774C21E227C553C0005E903A /* Checkbox.swift */,
@@ -147,6 +150,7 @@
 				774C21C727B42CE9005E903A /* CustomTableViewCell.swift in Sources */,
 				774C21E327C553C0005E903A /* Checkbox.swift in Sources */,
 				774C219E27AB0484005E903A /* AppDelegate.swift in Sources */,
+				7787280427D0263A0060B496 /* WeeksClassVC.swift in Sources */,
 				774C21A027AB0484005E903A /* SceneDelegate.swift in Sources */,
 				774C21C327B0D6A7005E903A /* HomeViewController.swift in Sources */,
 			);
