@@ -56,6 +56,8 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .blue
         
         addImage()
+        
+        print("c")
             
         let whiteBox = UIButton()
         whiteBox.setTitle("Cool", for: .normal)
