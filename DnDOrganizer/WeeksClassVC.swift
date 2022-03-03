@@ -64,6 +64,7 @@ class WeekTableViewCell: UITableViewCell {
         contentView.backgroundColor = .systemBlue
         
         weekLabel.text = ""
+        weekLabel.font = UIFont.systemFont(ofSize: 50.0)
         contentView.addAutoLayoutSubview(weekLabel)
         weekLabel.fillSuperview()
     }

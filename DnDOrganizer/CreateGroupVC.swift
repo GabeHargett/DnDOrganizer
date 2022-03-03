@@ -242,8 +242,6 @@ extension firstvc: UITextFieldDelegate {
             UserDefaults.standard.set(weekData.tasks.map({$0.title}), forKey: "Week\(weekData.weekNumber)Titles")
 
             UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
-
-           tableView.reloadData()
             
             tableView.reloadData()
             
