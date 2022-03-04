@@ -155,7 +155,7 @@ class firstvc: UIViewController {
     let myTextField: UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 50.00))
         
     weak var delegate: firstvcDelegate?
-    var isComplete: Bool?
+    var isCompleted: Bool?
   
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
