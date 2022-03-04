@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
 //        guard let integer = integer else {
 //            return
 //        }
-        
+        GabePractice.start()
     }
     
     
