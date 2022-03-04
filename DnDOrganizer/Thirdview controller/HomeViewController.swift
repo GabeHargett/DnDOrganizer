@@ -178,19 +178,18 @@ class HomeViewController: UIViewController {
     
     @objc private func didTapBlackBox() {
         let vc = WeeksClassVC()
-        //error keeps popping up everytime something is changed under WeeksClassVC cannot find WeeksClassVc in scope, but goes away each time after build.
-        navigationController?.pushViewController(vc, animated: true)        
+        navigationController?.pushViewController(vc, animated: true)
     }
+    
     
 }
 
-extension HomeViewController: firstvcDelegate {
-    
-    func hideText(isCompleted: Bool) {
-        completionLabel.isHidden = isCompleted
- //is not hiding text
-    }
-}
+//extension HomeViewController: firstvcDelegate {
+//
+////    func hideText(isCompleted: Bool) {
+////        completionLabel.isHidden = isCompleted
+//    }
+//}
 
 
 

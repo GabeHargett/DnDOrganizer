@@ -120,7 +120,8 @@ struct WeekTask {
 }
 
 protocol firstvcDelegate: AnyObject {
-    func hideText(isCompleted: Bool)
+//    func hideText(isCompleted: Bool)
+    func didUpdateData(weekNumber: Int)
 }
 
 
@@ -267,7 +268,7 @@ extension firstvc: CustomTableViewCellDelegate {
         print("checked")
         weekData.tasks[taskIndex].isComplete.toggle()
         UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
-        delegate?.hideText(isCompleted: true)
+//       delegate?.hideText(isCompleted: true)
     }
 }
 

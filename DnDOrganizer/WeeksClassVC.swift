@@ -36,6 +36,7 @@ let tableView = UITableView()
         
         let week1Data = WeekData(weekNumber: indexPath.item + 1, tasks: [])
         let vc = firstvc(weekData: week1Data)
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
 
      }
@@ -50,6 +51,15 @@ let tableView = UITableView()
                            forCellReuseIdentifier: WeekTableViewCell.identifier)
     }
     
+}
+
+extension WeeksClassVC: firstvcDelegate {
+    func didUpdateData(weekNumber: Int) {
+        if weekNumber <= 1 {
+            print(weekNumber)
+            
+        }
+    }
 }
 
 class WeekTableViewCell: UITableViewCell {
