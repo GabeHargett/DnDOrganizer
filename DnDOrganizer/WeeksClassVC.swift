@@ -42,6 +42,7 @@ let tableView = UITableView()
      }
     
     
+    
     func setupTableView() {
         view.addAutoLayoutSubview(tableView)
         tableView.fillSuperview()
@@ -50,15 +51,17 @@ let tableView = UITableView()
         tableView.register(WeekTableViewCell.self,
                            forCellReuseIdentifier: WeekTableViewCell.identifier)
     }
+
     
 }
 
 extension WeeksClassVC: firstvcDelegate {
+
     func didUpdateData(weekNumber: Int) {
         if weekNumber <= 1 {
             print(weekNumber)
-            
         }
+
     }
 }
 

@@ -293,6 +293,15 @@ extension firstvc: UITableViewDataSource, UITableViewDelegate {
 
 
     }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//      if editingStyle == .delete {
+//        print("Deleted")
+//
+//        self.myTextField.remove(indexPath.row)
+//          self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//      }
+//    }
 
     
 
