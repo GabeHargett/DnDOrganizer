@@ -16,7 +16,7 @@ class GabePractice {
 
         let answer1 = getIndexOfFirst(desiredValue: 3, numbers: [3, 6, 4, 8, 3, 6])
 
-  private func getIndexOfFirst(desiredValue: Int, numbers: [Int]) -> [Int]{
+        func getIndexOfFirst(desiredValue: Int, numbers: [Int]) -> [Int]{
         var answer = [Int]()
             for (index, number) in numbers.enumerated() {
                 if number == desiredValue {
@@ -37,7 +37,7 @@ return answer
         //Question 2 Test. Uncomment below 2 lines to start testing
         let answer2 = returnAllIntegersThatAreMultipleOf(value: 3, numbers: [2, 3, 4, 9])
 
-    private func returnAllIntegersThatAreMultipleOf(value: Int, numbers: [Int]) -> [Int] {
+        func returnAllIntegersThatAreMultipleOf(value: Int, numbers: [Int]) -> [Int] {
             var answer = [Int]()
             for number in numbers {
                 if number % value == 0 {
