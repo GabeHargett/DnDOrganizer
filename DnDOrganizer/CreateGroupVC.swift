@@ -96,6 +96,16 @@ struct WeekData {
     var weekNumber: Int
 
     var tasks: [WeekTask]
+    
+    func allTasksComplete() -> Bool {
+        var allComplete = true
+        for task in tasks {
+            if !task.isComplete {
+                allComplete = false
+            }
+        }
+        return allComplete
+    }
 
 }
 
@@ -110,7 +120,8 @@ struct WeekTask {
 }
 
 protocol firstvcDelegate: AnyObject {
-    func hideText(isCompleted: Bool)
+//    func hideText(isCompleted: Bool)
+    func didUpdateData(weekNumber: Int)
 }
 
 
@@ -145,7 +156,7 @@ class firstvc: UIViewController {
     let myTextField: UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 50.00))
         
     weak var delegate: firstvcDelegate?
-    var isComplete: Bool?
+    var isCompleted: Bool?
   
     
     required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -232,8 +243,6 @@ extension firstvc: UITextFieldDelegate {
             UserDefaults.standard.set(weekData.tasks.map({$0.title}), forKey: "Week\(weekData.weekNumber)Titles")
 
             UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
-
-           tableView.reloadData()
             
             tableView.reloadData()
             
@@ -259,7 +268,7 @@ extension firstvc: CustomTableViewCellDelegate {
         print("checked")
         weekData.tasks[taskIndex].isComplete.toggle()
         UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
-        delegate?.hideText(isCompleted: true)
+//       delegate?.hideText(isCompleted: true)
     }
 }
 
@@ -284,6 +293,15 @@ extension firstvc: UITableViewDataSource, UITableViewDelegate {
 
 
     }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//      if editingStyle == .delete {
+//        print("Deleted")
+//
+//        self.myTextField.remove(indexPath.row)
+//          self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//      }
+//    }
 
     
 
