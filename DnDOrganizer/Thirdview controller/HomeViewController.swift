@@ -36,6 +36,13 @@ class HomeViewController: UIViewController {
     
     let imageView = UIImageView()
     let completionLabel = UILabel()
+    
+    private let gameButton = UIButton()
+    private var pressesLeft = 10
+    private var gameButtonCenterXAnchor = NSLayoutConstraint()
+    private var gameButtonCenterYAnchor = NSLayoutConstraint()
+    private let timerLabel = UILabel()
+    private let winLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +50,7 @@ class HomeViewController: UIViewController {
         title = "Home"
         structPlayground()
         configureBackground()
+        setupGame()
 //        var integer: Int?
 //        var cgFloat: CGFloat?
 //        var double: Double?
@@ -53,6 +61,95 @@ class HomeViewController: UIViewController {
 //            return
 //        }
         GabePractice.start()
+    }
+    
+    private func setupGame() {
+        gameButton.setTitle("Press me \(pressesLeft) more times", for: .normal)
+        gameButton.setTitleColor(.black, for: .normal)
+        gameButton.backgroundColor = .white
+        gameButton.cornerRadius(radius: 8)
+        gameButton.width(constant: 200)
+        gameButton.height(constant: 30)
+        gameButton.addTarget(self, action: #selector(didTapGameButton), for: .touchUpInside)
+        
+        winLabel.quickConfigure(textAlignment: .center, font: .boldSystemFont(ofSize: 20), textColor: .white)
+        view.addAutoLayoutSubview(winLabel)
+        winLabel.centerInSuperview()
+        winLabel.isHidden = true
+        
+        timerLabel.quickConfigure(textAlignment: .center, font: .boldSystemFont(ofSize: 20), textColor: .white)
+        timerLabel.text = "\(10.0)"
+        
+        let timerHolder = UIView()
+        timerHolder.backgroundColor = .black
+        timerHolder.cornerRadius(radius: 8)
+        timerHolder.height(constant: 50)
+        timerHolder.width(constant: 100)
+        
+        timerHolder.addAutoLayoutSubview(timerLabel)
+        timerLabel.centerInSuperview()
+        
+        view.addAutoLayoutSubview(timerHolder)
+        
+        view.addAutoLayoutSubview(gameButton)
+        
+        gameButtonCenterXAnchor = gameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        gameButtonCenterYAnchor = gameButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        
+        NSLayoutConstraint.activate([
+            timerHolder.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            timerHolder.rightAnchor.constraint(equalTo: view.rightAnchor),
+            
+            gameButtonCenterXAnchor,
+            gameButtonCenterYAnchor,
+        ])
+        
+        var totalTime: Int = 0
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            totalTime += 1
+            let timeLeft = 100-totalTime
+            let firstDigits = timeLeft / 10
+            let lastDigits = timeLeft % 10
+            self.timerLabel.text = "\(firstDigits).\(lastDigits)"
+
+            if totalTime == 100 {
+                timer.invalidate()
+                self.evaluateResult()
+            }
+        }
+    }
+    
+    @objc private func didTapGameButton() {
+        pressesLeft -= 1
+        if pressesLeft == 0 {
+            gameButton.isHidden = true
+            return
+        }
+        gameButton.setTitle("Press me \(pressesLeft) more times", for: .normal)
+        
+        let randomXUpperRange = UIScreen.main.bounds.width / 2 - 100
+        let randomXLowerRange = -randomXUpperRange
+        
+        let randomYUpperRange = UIScreen.main.bounds.height / 2 - 60
+        let randomYLowerRange = -randomYUpperRange + 30
+        
+        gameButtonCenterXAnchor.constant = CGFloat.random(in: randomXLowerRange...randomXUpperRange)
+        gameButtonCenterYAnchor.constant = CGFloat.random(in: randomYLowerRange...randomYUpperRange)
+    }
+    
+    private func evaluateResult() {
+        gameButton.isHidden = true
+        winLabel.isHidden = false
+        if pressesLeft == 0 {
+            winLabel.text = "You win!"
+        } else {
+            winLabel.text = "You lose you pathetic moron"
+        }
+        UIView.animate(withDuration: 2, animations: {
+            self.winLabel.transform = CGAffineTransform(scaleX: 3, y: 3)
+        }) {result in
+            self.winLabel.isHidden = true
+        }
     }
     
     
@@ -429,5 +526,14 @@ extension UIView {
 extension UIStackView {
     func addArrangedSubviews(_ subviews: [UIView]) {
         subviews.forEach(addArrangedSubview)
+    }
+}
+
+extension UILabel {
+    func quickConfigure(textAlignment: NSTextAlignment, font: UIFont, textColor: UIColor, numberOfLines: Int = 1) {
+        self.textAlignment = textAlignment
+        self.font = font
+        self.textColor = textColor
+        self.numberOfLines = numberOfLines
     }
 }
