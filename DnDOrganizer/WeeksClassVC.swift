@@ -32,7 +32,7 @@ let tableView = UITableView()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.item+1)
+//        print(indexPath.item+1)
         
         let week1Data = WeekData(weekNumber: indexPath.item + 1, tasks: [])
         let vc = firstvc(weekData: week1Data)
@@ -60,8 +60,7 @@ extension WeeksClassVC: firstvcDelegate {
     func didUpdateData(weekNumber: Int) {
         if weekNumber <= 1 {
             print(weekNumber)
-        }
-
+}
     }
 }
 
