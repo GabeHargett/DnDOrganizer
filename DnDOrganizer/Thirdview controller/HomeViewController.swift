@@ -107,12 +107,12 @@ class HomeViewController: UIViewController {
         var totalTime: Int = 0
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             totalTime += 1
-            let timeLeft = 100-totalTime
-            let firstDigits = timeLeft / 20
+            let timeLeft = 50-totalTime
+            let firstDigits = timeLeft / 10
             let lastDigits = timeLeft % 10
             self.timerLabel.text = "\(firstDigits).\(lastDigits)"
 
-            if totalTime == 100 {
+            if totalTime == 50 {
                 timer.invalidate()
                 self.evaluateResult()
             }
