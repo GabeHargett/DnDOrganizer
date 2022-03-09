@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
     let completionLabel = UILabel()
     
     private let gameButton = UIButton()
-    private var pressesLeft = 10
+    private var pressesLeft = 5
     private var gameButtonCenterXAnchor = NSLayoutConstraint()
     private var gameButtonCenterYAnchor = NSLayoutConstraint()
     private let timerLabel = UILabel()
@@ -108,7 +108,7 @@ class HomeViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             totalTime += 1
             let timeLeft = 100-totalTime
-            let firstDigits = timeLeft / 10
+            let firstDigits = timeLeft / 20
             let lastDigits = timeLeft % 10
             self.timerLabel.text = "\(firstDigits).\(lastDigits)"
 
