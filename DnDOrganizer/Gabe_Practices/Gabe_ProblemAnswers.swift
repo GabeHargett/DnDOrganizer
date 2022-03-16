@@ -5,7 +5,7 @@
 //  Created by Tanner Rozier on 3/3/22.
 //
 
-import Foundation
+import UIKit
 
 //Problem 1 Answer
 //private class func getIndexOfFirst(desiredValue: Int, numbers: [Int]) -> [Int] {
@@ -64,3 +64,32 @@ func findTheLargestSumTwoDifferentNumbersCanMakeInNumbersArray(numbers: [Int]) -
     }
     return firstLargest! + secondLargest!
 }
+
+
+
+
+//Problem 4 Answer
+//func findThePointClosestToTheKeyPoint(keyPoint: CGPoint, points: [CGPoint]) -> CGPoint {
+//
+//    func distanceBetweenTwoPoints(point1: CGPoint, point2: CGPoint) -> CGFloat {
+//        let changeXSquared = pow(point2.x-point1.x, 2)
+//        let changeYSquared = pow(point2.y-point1.y, 2)
+//        return pow(changeXSquared + changeYSquared, 0.5)
+//    }
+//
+//    var closestPoint: CGPoint?
+//    var closestDistance: CGFloat?
+//    for point in points {
+//        if let closestDistanceTemp = closestDistance {
+//            let newDistance = distanceBetweenTwoPoints(point1: point, point2: keyPoint)
+//            if newDistance < closestDistanceTemp {
+//                closestPoint = point
+//                closestDistance = newDistance
+//            }
+//        } else {
+//            closestPoint = point
+//            closestDistance = distanceBetweenTwoPoints(point1: point, point2: keyPoint)
+//        }
+//    }
+//    return closestPoint!
+//}

@@ -5,7 +5,7 @@
 //  Created by Tanner Rozier on 3/3/22.
 //
 
-import Foundation
+import UIKit
 
 class GabePractice {
     
@@ -92,9 +92,9 @@ class GabePractice {
 //            return firstLargest! + secondLargest!
 //        }
 
-        let answer3 = findTheLargestSumTwoDifferentNumbersCanMakeInNumbersArray(numbers: [5, 3, 12, 4, 10])
-        
-        print("Answer 3 is \(answer3)")
+//        let answer3 = findTheLargestSumTwoDifferentNumbersCanMakeInNumbersArray(numbers: [5, 3, 12, 4, 10])
+//
+//        print("Answer 3 is \(answer3)")
         //         this should print 23
         
         // [-3, 4, -1] should print 3
@@ -103,20 +103,16 @@ class GabePractice {
         
         
         
+        //Question 4 Test. Uncomment below lines to start testing
+        
+//        func findThePointClosestToTheKeyPoint(keyPoint: CGPoint, points: [CGPoint]) -> CGPoint {
+//
+//        }
+        
+//        let answer4 = findThePointClosestToTheKeyPoint(keyPoint: CGPoint(x: 2, y: 5), points: [CGPoint(x: 0, y: 0), CGPoint(x: 5, y: 5), CGPoint(x: 1.5, y: 7.9)])
+//        print("Answer 4 is \(answer4)")
+        //This should print (1.5, 7.9)
+        
     }
-
-//Question 1 Method. Uncomment below function to start
-//    private class func getIndexOfFirst(desiredValue: Int, numbers: [Int]) -> [Int] {
-//
-//        return[]
-//    }
-//    
-//
-//
-//    Question 2 Method. Uncomment below function to start
-//    private class func returnAllIntegersThatAreMultipleOf(value: Int, numbers: [Int]) -> [Int] {
-//
-//    }
-//
-//}
-    }
+    
+}
