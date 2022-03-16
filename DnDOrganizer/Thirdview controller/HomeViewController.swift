@@ -78,7 +78,7 @@ class HomeViewController: UIViewController {
         winLabel.isHidden = true
         
         timerLabel.quickConfigure(textAlignment: .center, font: .boldSystemFont(ofSize: 20), textColor: .white)
-        timerLabel.text = "\(10.0)"
+        timerLabel.text = "5.0"
         
         let timerHolder = UIView()
         timerHolder.backgroundColor = .black

@@ -53,17 +53,48 @@ class GabePractice {
         
         
         
-        
-        
-        
         //Question 3 Test. Uncomment below lines to start testing
         
 //        func findTheLargestSumTwoDifferentNumbersCanMakeInNumbersArray(numbers: [Int]) -> Int {
-//
+//            var numbers = numbers
+//            numbers.sort()
+//            var answer: Int = 0
+//            let numbersCount = numbers.count
+//            if numbersCount < 2 {
+//                return 0
+//            }
+//            let lastNumber = numbers[numbersCount - 1]
+//            let secondLastNumber = numbers[numbersCount - 2]
+//answer = lastNumber + secondLastNumber
+//return(answer)
 //        }
-//        let answer3 = findTheLargestSumTwoDifferentNumbersCanMakeInNumbersArray(numbers: [5, 3, 12, 4, 11])
+//        func findTheLargestSumTwoDifferentNumbersCanMakeInNumbersArray(numbers: [Int]) -> Int {
+//            var firstLargest: Int?
+//            var secondLargest: Int?
+//            for number in numbers {
+//                if let firstLargestTemp = firstLargest {
+//                    if number > firstLargestTemp {
+//                        secondLargest = firstLargest
+//                        firstLargest = number
+//                    } else {
+//                        if let secondLargestTemp = secondLargest {
+//                            if number > secondLargestTemp {
+//                                secondLargest = number
+//                            }
+//                        } else {
+//                            secondLargest = number
+//                        }
+//                    }
+//                } else {
+//                    firstLargest = number
+//                }
+//            }
+//            return firstLargest! + secondLargest!
+//        }
+
+        let answer3 = findTheLargestSumTwoDifferentNumbersCanMakeInNumbersArray(numbers: [5, 3, 12, 4, 10])
         
-        //print("Answer 3 is \(answer3)")
+        print("Answer 3 is \(answer3)")
         //         this should print 23
         
         // [-3, 4, -1] should print 3

@@ -41,26 +41,26 @@ import Foundation
 
 
 //Problem 3 Answer
-//func findTheLargestSumTwoDifferentNumbersCanMakeInNumbersArray(numbers: [Int]) -> Int {
-//    var firstLargest: Int?
-//    var secondLargest: Int?
-//    for number in numbers {
-//        if let firstLargestTemp = firstLargest {
-//            if number > firstLargestTemp {
-//                secondLargest = firstLargest
-//                firstLargest = number
-//            } else {
-//                if let secondLargestTemp = secondLargest {
-//                    if number > secondLargestTemp {
-//                        secondLargest = number
-//                    }
-//                } else {
-//                    secondLargest = number
-//                }
-//            }
-//        } else {
-//            firstLargest = number
-//        }
-//    }
-//    return firstLargest! + secondLargest!
-//}
+func findTheLargestSumTwoDifferentNumbersCanMakeInNumbersArray(numbers: [Int]) -> Int {
+    var firstLargest: Int?
+    var secondLargest: Int?
+    for number in numbers {
+        if let firstLargestTemp = firstLargest {
+            if number > firstLargestTemp {
+                secondLargest = firstLargest
+                firstLargest = number
+            } else {
+                if let secondLargestTemp = secondLargest {
+                    if number > secondLargestTemp {
+                        secondLargest = number
+                    }
+                } else {
+                    secondLargest = number
+                }
+            }
+        } else {
+            firstLargest = number
+        }
+    }
+    return firstLargest! + secondLargest!
+}

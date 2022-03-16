@@ -121,7 +121,7 @@ struct WeekTask {
 
 protocol firstvcDelegate: AnyObject {
 //    func hideText(isCompleted: Bool)
-    func didUpdateData(weekNumber: Int)
+    func didUpdateData(weekData: WeekData)
 }
 
 
@@ -267,6 +267,7 @@ extension firstvc: CustomTableViewCellDelegate {
     func didCheckBox(taskIndex: Int) {
         print("checked")
         weekData.tasks[taskIndex].isComplete.toggle()
+        delegate?.didUpdateData(weekData: weekData)
         UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
 //       delegate?.hideText(isCompleted: true)
     }
@@ -293,20 +294,20 @@ extension firstvc: UITableViewDataSource, UITableViewDelegate {
 
 
     }
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//
-//      if editingStyle == .delete {
-//        print("Deleted")
-//
-//        self.myTextField.remove(indexPath.row)
-//          self.tableView.deleteRows(at: [indexPath], with: .automatic)
-//      }
-//    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+      if editingStyle == .delete {
+        print("Deleted")
+          self.weekData.tasks.remove(at: indexPath.item)
+          self.tableView.deleteRows(at: [indexPath], with: .automatic)
+          delegate?.didUpdateData(weekData: weekData)
+      }
+    }
 
     
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
 //        weekData.tasks[indexPath.row].isComplete = true
 //
 //        UserDefaults.standard.set(weekData.tasks.map({$0.title}), forKey: "Week\(weekData.weekNumber)Titles")
@@ -314,8 +315,8 @@ extension firstvc: UITableViewDataSource, UITableViewDelegate {
 //        UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
 //
 //        tableView.reloadData()
-
-    }
+//
+//    }
 
 }
 
