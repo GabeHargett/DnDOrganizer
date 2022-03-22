@@ -301,6 +301,17 @@ extension firstvc: UITableViewDataSource, UITableViewDelegate {
           self.weekData.tasks.remove(at: indexPath.item)
           self.tableView.deleteRows(at: [indexPath], with: .automatic)
           delegate?.didUpdateData(weekData: weekData)
+          
+          UserDefaults.standard.set(weekData.tasks.map({$0.title}), forKey: "Week\(weekData.weekNumber)Titles")
+
+          UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
+          
+//          UserDefaults.standard.dictionaryRepresentation().keys.forEach(defaults.removeObject(forKey:))
+          
+//          func  remove_pref(remove_key : String){
+//              UserDefaults.standard.removeObject(forKey: remove_key)
+//              UserDefaults.standard.synchronize()
+//          }
       }
     }
 
