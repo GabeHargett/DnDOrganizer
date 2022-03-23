@@ -34,7 +34,7 @@ class GabePractice {
         //         this should print [0, 4]
         
         
-        //Question 2 Test. Uncomment below 2 lines to start testing
+//        Question 2 Test. Uncomment below 2 lines to start testing
 //        let answer2 = returnAllIntegersThatAreMultipleOf(value: 3, numbers: [2, 3, 4, 9])
 //
 //        func returnAllIntegersThatAreMultipleOf(value: Int, numbers: [Int]) -> [Int] {
@@ -47,8 +47,8 @@ class GabePractice {
 //            return answer
 //        }
 //        print("Answer 2 is \(answer2)")
-        //         this should print [3, 9]
-        //
+//                 this should print [3, 9]
+        
         
         
         
@@ -88,31 +88,56 @@ class GabePractice {
 //                } else {
 //                    firstLargest = number
 //                }
+//
 //            }
 //            return firstLargest! + secondLargest!
 //        }
-
+//
 //        let answer3 = findTheLargestSumTwoDifferentNumbersCanMakeInNumbersArray(numbers: [5, 3, 12, 4, 10])
 //
 //        print("Answer 3 is \(answer3)")
-        //         this should print 23
-        
-        // [-3, 4, -1] should print 3
+//                 this should print 23
+//
+//         [-3, 4, -1] should print 3
         
         
         
         
         
         //Question 4 Test. Uncomment below lines to start testing
+        struct PointAndDistance {
+            var closestPoint: CGPoint
+            var closestDistance: CGFloat
+        }
         
-//        func findThePointClosestToTheKeyPoint(keyPoint: CGPoint, points: [CGPoint]) -> CGPoint {
-//
-//        }
-        
-//        let answer4 = findThePointClosestToTheKeyPoint(keyPoint: CGPoint(x: 2, y: 5), points: [CGPoint(x: 0, y: 0), CGPoint(x: 5, y: 5), CGPoint(x: 1.5, y: 7.9)])
-//        print("Answer 4 is \(answer4)")
-        //This should print (1.5, 7.9)
+        func findThePointClosestToTheKeyPoint(keyPoint: CGPoint, points: [CGPoint]) -> PointAndDistance {
+
+
+                func distanceBetweenTwoPoints(point1: CGPoint, point2: CGPoint) -> CGFloat {
+                    let changeXSquared = pow(point2.x-point1.x, 2)
+                    let changeYSquared = pow(point2.y-point1.y, 2)
+                    return pow(changeXSquared + changeYSquared, 0.5)
+                }
+
+            var pointAndDistance:PointAndDistance?
+            
+                for point in points {
+                    if let closestDistanceTemp = pointAndDistance?.closestDistance {
+                        let newDistance = distanceBetweenTwoPoints(point1: point, point2: keyPoint)
+                        if newDistance < closestDistanceTemp {
+                            pointAndDistance?.closestPoint = point
+                            pointAndDistance?.closestDistance = newDistance
+                        }
+                    } else {
+                    pointAndDistance = PointAndDistance(closestPoint: point, closestDistance: distanceBetweenTwoPoints(point1: point, point2: keyPoint))
+                    }
+                }
+            return pointAndDistance!            }
+
+
+        let answer4 = findThePointClosestToTheKeyPoint(keyPoint: CGPoint(x: 2, y: 5), points: [CGPoint(x: 0, y: 0), CGPoint(x: 5, y: 5), CGPoint(x: 1.5, y: 7.9)])
+        print("Answer 4 is \(answer4)")
+//        This should print (1.5, 7.9)
         
     }
-    
 }
