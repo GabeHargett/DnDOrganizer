@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7726F16327EB7BE300B0DF3F /* BottomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7726F16227EB7BE300B0DF3F /* BottomModal.swift */; };
+		7726F16527EB7D0200B0DF3F /* TextInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7726F16427EB7D0200B0DF3F /* TextInputVC.swift */; };
 		774C219E27AB0484005E903A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C219D27AB0484005E903A /* AppDelegate.swift */; };
 		774C21A027AB0484005E903A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C219F27AB0484005E903A /* SceneDelegate.swift */; };
 		774C21A727AB0485005E903A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774C21A627AB0485005E903A /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7726F16227EB7BE300B0DF3F /* BottomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomModal.swift; sourceTree = "<group>"; };
+		7726F16427EB7D0200B0DF3F /* TextInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputVC.swift; sourceTree = "<group>"; };
 		774C219A27AB0484005E903A /* DnDOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnDOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		774C219D27AB0484005E903A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		774C219F27AB0484005E903A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 				774C21A627AB0485005E903A /* Assets.xcassets */,
 				774C21A827AB0485005E903A /* LaunchScreen.storyboard */,
 				774C21AB27AB0485005E903A /* Info.plist */,
+				7726F16227EB7BE300B0DF3F /* BottomModal.swift */,
+				7726F16427EB7D0200B0DF3F /* TextInputVC.swift */,
 			);
 			path = DnDOrganizer;
 			sourceTree = "<group>";
@@ -160,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7726F16327EB7BE300B0DF3F /* BottomModal.swift in Sources */,
 				775899B427D192F900019263 /* Gabe_Problems.swift in Sources */,
 				774C21B227AB417C005E903A /* CreateGroupVC.swift in Sources */,
 				774C21C727B42CE9005E903A /* CustomTableViewCell.swift in Sources */,
@@ -167,6 +174,7 @@
 				774C219E27AB0484005E903A /* AppDelegate.swift in Sources */,
 				7787280427D0263A0060B496 /* WeeksClassVC.swift in Sources */,
 				774C21A027AB0484005E903A /* SceneDelegate.swift in Sources */,
+				7726F16527EB7D0200B0DF3F /* TextInputVC.swift in Sources */,
 				774C21C327B0D6A7005E903A /* HomeViewController.swift in Sources */,
 				775899B627D1946800019263 /* Gabe_ProblemAnswers.swift in Sources */,
 			);
