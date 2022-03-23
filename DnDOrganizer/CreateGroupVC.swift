@@ -163,9 +163,6 @@ class firstvc: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        self.myTextField.delegate = self
                 
         view.backgroundColor = .systemBlue
         tableView.dataSource = self
@@ -227,40 +224,25 @@ class firstvc: UIViewController {
     }
     
     @objc private func addItem() {
-        myTextField.isHidden = false
-                
+        //myTextField.isHidden = false
+        let vc = TextInputVC()
+        vc.delegate = self
+        vc.showModal(vc: self)
     }
 }
 
-extension firstvc: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        myTextField.isHidden = true
-        if let text = myTextField.text, myTextField.text != "" {
-            
-            weekData.tasks.append(WeekTask(title: text, isComplete: false))
-            
-            UserDefaults.standard.set(weekData.tasks.map({$0.title}), forKey: "Week\(weekData.weekNumber)Titles")
-
-            UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
-            
-            tableView.reloadData()
-            
-            myTextField.text = nil
-            
-            
-            
-        }
+extension firstvc: TextInputVCDelegate {
+    func didSubmitText(text: String) {
+        weekData.tasks.append(WeekTask(title: text, isComplete: false))
         
-        return true
-    }
-    
-    func didSelectUseMap() {
+        UserDefaults.standard.set(weekData.tasks.map({$0.title}), forKey: "Week\(weekData.weekNumber)Titles")
 
+        UserDefaults.standard.set(weekData.tasks.map({$0.isComplete}), forKey: "Week\(weekData.weekNumber)Completes")
         
+        tableView.reloadData()
+        
+        myTextField.text = nil
     }
-
-
 }
 
 extension firstvc: CustomTableViewCellDelegate {
