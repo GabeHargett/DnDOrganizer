@@ -10,6 +10,7 @@ struct FullName{
     var firstName: String
     var lastName: String
     
+    
     func initials() -> String {
         var initials = ""
         initials.append(firstName.first!)
@@ -29,6 +30,13 @@ struct FullName{
 
 class HomeViewController: UIViewController {
     
+    
+    private let myButton: CustomButton = {
+        let myButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 200, height: 60))
+        myButton.backgroundColor = .systemBlue
+        return myButton
+    }()
+    
     func structPlayground() {
         let tannersName: FullName = FullName(firstName: "Tanner", lastName: "Rozier")
         print(tannersName.firstAndLastInitial())
@@ -36,6 +44,8 @@ class HomeViewController: UIViewController {
     
     let imageView = UIImageView()
     let completionLabel = UILabel()
+    
+
     
     private let gameButton = UIButton()
     private var pressesLeft = 5
@@ -90,7 +100,6 @@ class HomeViewController: UIViewController {
         timerLabel.centerInSuperview()
         
         view.addAutoLayoutSubview(timerHolder)
-        
         view.addAutoLayoutSubview(gameButton)
         
         gameButtonCenterXAnchor = gameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -194,15 +203,30 @@ class HomeViewController: UIViewController {
             //completionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -16),
             //completionLabel.heightAnchor.constraint(equalTo: completionLabel.widthAnchor),
         ])
+        
+        view.addSubview(myButton)
+        myButton.center = view.center
+//        view.addAutoLayoutSubview(myButton)
+        let viewModel = MyCustomButtonViewModel(title: "Purchase", subTitle: "$1.99/mo", imageName: "cart")
+        myButton.configure(with: viewModel)
+        
+        
+//        NSLayoutConstraint.activate([
+//            myButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            myButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+//            myButton.widthAnchor.constraint(equalToConstant: 50),
+//            myButton.heightAnchor.constraint(equalToConstant: 50),
+//        ])
 
+        
         let whiteBox = UIButton()
         whiteBox.setTitle("Cool", for: .normal)
         whiteBox.setTitleColor(.red, for: .normal)
         whiteBox.setTitleColor(UIColor.red.withAlphaComponent(0.3), for: .highlighted)
         whiteBox.backgroundColor = .white
-        
+
         whiteBox.layer.cornerRadius = 5
-        
+
         view.addAutoLayoutSubview(whiteBox)
 
         NSLayoutConstraint.activate([

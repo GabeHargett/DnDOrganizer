@@ -125,3 +125,14 @@ class UnderlinedTextField: UITextField {
         ])
     }
 }
+class GButton: UIButton {
+    override func didMoveToSuperview() {
+        let GButton = UIButton()
+        GButton.setTitleColor(.black, for: .normal)
+        GButton.setTitleColor(UIColor.black.withAlphaComponent(0.3), for: .highlighted)
+        GButton.backgroundColor = .systemBlue
+        GButton.cornerRadius(radius: 8)
+        addAutoLayoutSubview(GButton)
+
+    }
+}

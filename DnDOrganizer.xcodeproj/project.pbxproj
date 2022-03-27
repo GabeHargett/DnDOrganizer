@@ -20,6 +20,7 @@
 		775899B427D192F900019263 /* Gabe_Problems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775899B327D192F900019263 /* Gabe_Problems.swift */; };
 		775899B627D1946800019263 /* Gabe_ProblemAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775899B527D1946800019263 /* Gabe_ProblemAnswers.swift */; };
 		7787280427D0263A0060B496 /* WeeksClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7787280327D0263A0060B496 /* WeeksClassVC.swift */; };
+		778728A127F02C7F0060B496 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778728A027F02C7E0060B496 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		775899B327D192F900019263 /* Gabe_Problems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gabe_Problems.swift; sourceTree = "<group>"; };
 		775899B527D1946800019263 /* Gabe_ProblemAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gabe_ProblemAnswers.swift; sourceTree = "<group>"; };
 		7787280327D0263A0060B496 /* WeeksClassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksClassVC.swift; sourceTree = "<group>"; };
+		778728A027F02C7E0060B496 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				774C21AB27AB0485005E903A /* Info.plist */,
 				7726F16227EB7BE300B0DF3F /* BottomModal.swift */,
 				7726F16427EB7D0200B0DF3F /* TextInputVC.swift */,
+				778728A027F02C7E0060B496 /* CustomButton.swift */,
 			);
 			path = DnDOrganizer;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				774C219E27AB0484005E903A /* AppDelegate.swift in Sources */,
 				7787280427D0263A0060B496 /* WeeksClassVC.swift in Sources */,
 				774C21A027AB0484005E903A /* SceneDelegate.swift in Sources */,
+				778728A127F02C7F0060B496 /* CustomButton.swift in Sources */,
 				7726F16527EB7D0200B0DF3F /* TextInputVC.swift in Sources */,
 				774C21C327B0D6A7005E903A /* HomeViewController.swift in Sources */,
 				775899B627D1946800019263 /* Gabe_ProblemAnswers.swift in Sources */,
