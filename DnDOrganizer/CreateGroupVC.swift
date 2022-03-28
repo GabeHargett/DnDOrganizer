@@ -11,7 +11,7 @@ import SwiftUI
 class CreateGroupVC: UIViewController {
     
     let stackView = UIStackView()
-    let button = GButton()
+    let button = UIButton()
     let label = UILabel()
     let label2 = UILabel()
     let button2 = UIButton()

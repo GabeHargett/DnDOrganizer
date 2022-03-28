@@ -31,11 +31,7 @@ struct FullName{
 class HomeViewController: UIViewController {
     
     
-    private let myButton: CustomButton = {
-        let myButton = CustomButton(frame: CGRect(x: 0, y: 0, width: 200, height: 60))
-        myButton.backgroundColor = .systemBlue
-        return myButton
-    }()
+
     
     func structPlayground() {
         let tannersName: FullName = FullName(firstName: "Tanner", lastName: "Rozier")
@@ -204,20 +200,24 @@ class HomeViewController: UIViewController {
             //completionLabel.heightAnchor.constraint(equalTo: completionLabel.widthAnchor),
         ])
         
-        view.addSubview(myButton)
-        myButton.center = view.center
-//        view.addAutoLayoutSubview(myButton)
-        let viewModel = MyCustomButtonViewModel(title: "Purchase", subTitle: "$1.99/mo", imageName: "cart")
+        
+        let viewModel = MyCustomButtonViewModel(title: "Notifications", subTitle: "Opt In", imageName: "bell")
+        let myButton = CustomButton(with: viewModel)
+        
+        
+        myButton.backgroundColor = .systemRed
         myButton.configure(with: viewModel)
-        
-        
-//        NSLayoutConstraint.activate([
-//            myButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            myButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
-//            myButton.widthAnchor.constraint(equalToConstant: 50),
-//            myButton.heightAnchor.constraint(equalToConstant: 50),
-//        ])
 
+        view.addAutoLayoutSubview(myButton)
+                
+        NSLayoutConstraint.activate([
+            myButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            myButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80),
+//            myButton.widthAnchor.constraint(equalToConstant: 200),
+       ])
+        myButton.isUserInteractionEnabled = true
+        let tapGesture180 = UITapGestureRecognizer(target: self, action: #selector(didTapMyButton))
+        myButton.addGestureRecognizer(tapGesture180)
         
         let whiteBox = UIButton()
         whiteBox.setTitle("Cool", for: .normal)
@@ -299,6 +299,11 @@ class HomeViewController: UIViewController {
     
     @objc private func didTapBlackBox() {
         let vc = WeeksClassVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func didTapMyButton() {
+        let vc = TemporaryVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     
