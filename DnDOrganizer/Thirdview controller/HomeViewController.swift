@@ -201,23 +201,44 @@ class HomeViewController: UIViewController {
         ])
         
         
-        let viewModel = MyCustomButtonViewModel(title: "Notifications", subTitle: "Opt In", imageName: "bell")
-        let myButton = CustomButton(with: viewModel)
+//        let viewModel = MyCustomButtonViewModel(title: "Notifications", subTitle: "Opt In", imageName: "bell")
+//        let myButton = CustomButton(with: viewModel)
+//
+//
+//        myButton.backgroundColor = .systemRed
+//        myButton.configure(with: viewModel)
+//
+//        view.addAutoLayoutSubview(myButton)
+//                
+//        NSLayoutConstraint.activate([
+//            myButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            myButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80),
+////            myButton.widthAnchor.constraint(equalToConstant: 200),
+//       ])
         
-        
-        myButton.backgroundColor = .systemRed
-        myButton.configure(with: viewModel)
+        let tannersButton = CustomButton(type: .imageAndLabel)
+        tannersButton.setImage(image:UIImage(systemName: "music.note"),color: .systemGreen)
 
-        view.addAutoLayoutSubview(myButton)
-                
+        tannersButton.setTitle(title: "Music World")
+        tannersButton.setImageWidth(size: 32)
+        tannersButton.setImageHeight(size: 32)
+//        tannersButton.setImage(image: image1, color: .black)
+        tannersButton.quickConfigure(
+            font: .systemFont(ofSize: 17), titleColor: .systemGreen, backgroundColor: .systemBrown, cornerRadius: 15)
+        
+        tannersButton.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        view.addAutoLayoutSubview(tannersButton)
+        
+        tannersButton.isUserInteractionEnabled = true
+    let tapGesture180 = UITapGestureRecognizer(target: self, action: #selector(didTapTannersButton))
+        tannersButton.addGestureRecognizer(tapGesture180)
+
+                                  
         NSLayoutConstraint.activate([
-            myButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            myButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80),
-//            myButton.widthAnchor.constraint(equalToConstant: 200),
-       ])
-        myButton.isUserInteractionEnabled = true
-        let tapGesture180 = UITapGestureRecognizer(target: self, action: #selector(didTapMyButton))
-        myButton.addGestureRecognizer(tapGesture180)
+            tannersButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tannersButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
         
         let whiteBox = UIButton()
         whiteBox.setTitle("Cool", for: .normal)
@@ -302,7 +323,7 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func didTapMyButton() {
+    @objc private func didTapTannersButton() {
         let vc = TemporaryVC()
         navigationController?.pushViewController(vc, animated: true)
     }
